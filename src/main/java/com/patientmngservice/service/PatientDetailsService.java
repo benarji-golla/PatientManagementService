@@ -9,4 +9,6 @@ public interface PatientDetailsService {
 
 	public PatientDetailsDto getPatientById(String patientId);
 
+	public void validateById(String id);
+
 }

@@ -58,5 +58,19 @@ public class PatientDetailsServiceImpl implements PatientDetailsService {
 		throw new PatientNotFoundException(Constants.ERROR + " fetching patient details with ID: " + patientId);
 	}
 	}
+	@Override
+	public void validateById(String id) {
+		
+		if(id == null && id.isBlank()) {
+			throw new PatientNotFoundException("patient Id can not be NULL"); 
+		}
+		
+		boolean exists = patientRepository.existsById(id);
+		
+		if(!exists) {
+			throw new PatientNotFoundException(Constants.ERROR + " fetching patient details with ID: " + id);
+		}
+		logger.info(Constants.RETRIEVED, "patient", id );
+	}
 
 }

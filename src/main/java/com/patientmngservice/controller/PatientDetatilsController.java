@@ -38,4 +38,10 @@ public class PatientDetatilsController {
 		return ResponseEntity.ok(patient);
 	}
 	
+	@GetMapping("/validatePatient/{patientId}")
+	public ResponseEntity<Void> validatePatient(@PathVariable String id){
+		patientDetailsService.validateById(id);
+		return ResponseEntity.ok().build();
+	}
+	
 }
