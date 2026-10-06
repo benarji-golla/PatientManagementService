@@ -39,8 +39,8 @@ public class PatientDetatilsController {
 	}
 	
 	@GetMapping("/validatePatient/{patientId}")
-	public ResponseEntity<Void> validatePatient(@PathVariable String id){
-		patientDetailsService.validateById(id);
+	public ResponseEntity<Void> validatePatient(@PathVariable String patientId){
+		patientDetailsService.validateById(patientId);
 		return ResponseEntity.ok().build();
 	}
 	
